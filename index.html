@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRC Landscape · Peyzaj Mimarlığı & Tasarım · İzmir</title>
+<meta name="description" content="TRC Landscape: İzmir'de Ege'nin iklimine ve doğasına uygun bahçe, teras ve avlu tasarımı. Konsept, proje, uygulama ve danışmanlık.">
+<meta property="og:title" content="TRC Landscape · Peyzaj Mimarlığı & Tasarım">
+<meta property="og:description" content="Timeless · Rustic · Chic. İzmir'de doğadan ilham alan, zamansız bahçeler.">
+<meta property="og:image" content="img/hero.webp">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #ECE7DE; --cream-2: #E3DDD1; --ink: #262821; --olive: #626E48; --muted: #78746A;
+    --line: #CDC6B8; --white: #F6F3EE;
+    --serif: "Cormorant Garamond", Georgia, serif; --sans: "Montserrat", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 400; line-height: 1.7; font-size: 16px; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: min(1180px, 100% - 40px); margin: 0 auto; }
+  .kicker { font-family: var(--sans); font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.1; }
+  h2 { font-size: clamp(34px, 5vw, 56px); margin: 14px 0 22px; }
+  h3 { font-size: 28px; margin-bottom: 8px; }
+  .rule { width: 70px; height: 1px; background: var(--line); margin: 22px 0; }
+  .italic { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 22px; }
+
+  /* üst menü */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 10; transition: background .3s; }
+  header.solid { background: rgba(236, 231, 222, .94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: .3em; }
+  .brand img { width: 44px; height: 44px; }
+  .menu { display: flex; gap: 30px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
+  .menu a:hover { color: var(--olive); }
+  header:not(.solid) .brand, header:not(.solid) .menu { color: var(--white); }
+  header:not(.solid) .brand img { filter: invert(1) brightness(1.4); }
+
+  /* giriş */
+  .hero { position: relative; min-height: 100vh; display: grid; place-items: end start; color: var(--white);
+          background: linear-gradient(180deg, rgba(20,20,16,.25), rgba(20,20,16,.55)), url(img/hero.webp) center/cover; }
+  .hero .wrap { padding-bottom: 12vh; }
+  .hero h1 { font-size: clamp(52px, 9vw, 112px); margin: 12px 0 18px; }
+  .hero .kicker { color: rgba(246,243,238,.85); }
+  .hero p { max-width: 520px; font-size: 18px; font-weight: 300; }
+  .btn { display: inline-block; margin-top: 30px; padding: 16px 34px; border: 1px solid currentColor; font-size: 12px;
+         letter-spacing: .25em; text-transform: uppercase; transition: .25s; }
+  .btn:hover { background: var(--white); color: var(--ink); }
+  .btn.dark { color: var(--ink); }
+  .btn.dark:hover { background: var(--ink); color: var(--cream); }
+
+  section { padding: 120px 0; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .split img { aspect-ratio: 4/5; object-fit: cover; width: 100%; box-shadow: 0 30px 60px -30px rgba(60,55,40,.35); }
+
+  /* TRC üç kelime */
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); margin-top: 50px; border: 1px solid var(--line); }
+  .trio div { background: var(--cream); padding: 40px 30px; }
+  .trio .letter { font-family: var(--serif); font-size: 64px; color: var(--olive); line-height: 1; }
+  .trio h3 { margin-top: 14px; }
+  .trio p { color: #4a4a42; font-size: 15px; }
+
+  /* hizmetler */
+  .services { background: var(--cream-2); }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 50px; }
+  .card .no { font-family: var(--serif); font-size: 46px; color: #96A078; line-height: 1; }
+  .card h3 { margin: 14px 0 6px; }
+  .card p { font-size: 15px; color: #4a4a42; }
+
+  /* projeler */
+  .project { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; margin-top: 50px; }
+  .project .big { grid-row: span 2; }
+  .project img { width: 100%; height: 100%; object-fit: cover; }
+  .project .big img { aspect-ratio: 4/5; }
+  .project .small img { aspect-ratio: 16/11; }
+  .project-meta { display: flex; justify-content: space-between; align-items: end; margin-top: 26px; gap: 30px; flex-wrap: wrap; }
+  .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tags span { border: 1px solid var(--line); padding: 6px 14px; font-size: 12px; letter-spacing: .08em; }
+
+  /* bitkiler */
+  .plants { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 50px; }
+  .plant img { aspect-ratio: 4/5; object-fit: cover; width: 100%; }
+  .plant h3 { margin-top: 18px; font-size: 26px; }
+  .plant .latin { font-family: var(--serif); font-style: italic; color: var(--muted); }
+  .plant p { font-size: 14px; color: #4a4a42; margin-top: 6px; }
+
+  /* süreç */
+  .process { background: var(--ink); color: var(--cream); }
+  .process .kicker, .process .italic { color: #B8B2A4; }
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 56px; counter-reset: s; }
+  .step { border-top: 1px solid rgba(236,231,222,.25); padding-top: 22px; }
+  .step::before { counter-increment: s; content: "0" counter(s); font-family: var(--serif); font-size: 40px; color: #A9B387; }
+  .step h3 { margin: 10px 0 6px; font-size: 26px; }
+  .step p { font-size: 14px; color: #CFC9BC; }
+
+  /* iletişim */
+  .contact { text-align: center; }
+  .contact .wrap { max-width: 720px; }
+  .contact img.logo { width: 150px; margin: 0 auto 26px; }
+  .contact p { color: #4a4a42; }
+  .contact .rule { margin: 26px auto; }
+
+  footer { border-top: 1px solid var(--line); padding: 36px 0; font-size: 12px; letter-spacing: .25em; color: var(--muted); text-align: center; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .menu { display: none; }
+    section { padding: 80px 0; }
+    .split, .project { grid-template-columns: 1fr; gap: 40px; }
+    .project .big { grid-row: auto; }
+    .trio, .plants { grid-template-columns: 1fr; }
+    .grid4 { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) { .grid4 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#"><img src="img/logo.png" alt="TRC Landscape logosu"><span>TRC LANDSCAPE</span></a>
+    <nav class="menu">
+      <a href="#hakkimizda">Hakkımızda</a><a href="#hizmetler">Hizmetler</a><a href="#projeler">Projeler</a>
+      <a href="#bitkiler">Bitkiler</a><a href="#iletisim">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Peyzaj Mimarlığı & Tasarım · İzmir</div>
+    <h1>Doğadan ilham alan,<br>zamansız bahçeler.</h1>
+    <p>Ege'nin iklimine, toprağına ve ışığına uygun bahçeler, teraslar ve avlular tasarlıyoruz.</p>
+    <a class="btn" href="#iletisim">Projeni konuşalım</a>
+  </div>
+</section>
+
+<section id="hakkimizda">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="kicker">Hakkımızda</div>
+      <h2>Timeless · Rustic · Chic</h2>
+      <p class="italic">Bugün değil, yıllar sonra da güzel olacak mekânlar.</p>
+      <div class="rule"></div>
+      <p>TRC Landscape, İzmir merkezli bir peyzaj tasarım stüdyosu. Yerel taşı, kuraklığa dayanıklı bitkileri ve sade bir tasarım dilini bir araya getirerek az su isteyen, her mevsim karakterini koruyan bahçeler kuruyoruz.</p>
+    </div>
+    <img class="reveal" src="img/about.webp" alt="Ege kıyısında yerli bitkilerle tasarlanmış bahçe" loading="lazy">
+  </div>
+  <div class="wrap trio reveal">
+    <div><div class="letter">T</div><h3>Timeless</h3><p>Moda olanı değil, kalıcı olanı tasarlarız. Doğru oranlar, doğru malzeme, uzun ömür.</p></div>
+    <div><div class="letter">R</div><h3>Rustic</h3><p>Kusursuz yüzeyler yerine taşın, toprağın ve zamanın izini severiz.</p></div>
+    <div><div class="letter">C</div><h3>Chic</h3><p>Az ama doğru elemanla; sessiz ama etkili mekânlar.</p></div>
+  </div>
+</section>
+
+<section id="hizmetler" class="services">
+  <div class="wrap">
+    <div class="kicker reveal">Hizmetler</div>
+    <h2 class="reveal">Fikirden bahçeye</h2>
+    <div class="grid4">
+      <div class="card reveal"><div class="no">01</div><h3>Konsept</h3><p>Alanı ve ihtiyaçlarınızı dinleyip malzeme, bitki ve renk dilini belirliyoruz.</p></div>
+      <div class="card reveal"><div class="no">02</div><h3>Proje</h3><p>Ölçekli plan, bitki listesi, sulama ve aydınlatma detayları ile net bir maliyet.</p></div>
+      <div class="card reveal"><div class="no">03</div><h3>Uygulama</h3><p>Tasarımın sahada birebir hayata geçmesini adım adım takip ediyoruz.</p></div>
+      <div class="card reveal"><div class="no">04</div><h3>Danışmanlık</h3><p>Bitki seçimi, kurakçıl dönüşüm ve bakım planı için profesyonel destek.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projeler">
+  <div class="wrap">
+    <div class="kicker reveal">Projeler</div>
+    <h2 class="reveal">Mordoğan Bahçesi</h2>
+    <p class="italic reveal">Karaburun · İzmir</p>
+    <div class="project">
+      <div class="big reveal"><img src="img/mordogan.webp" alt="Mordoğan bahçesinde ateş çukuru ve oturma alanı" loading="lazy"></div>
+      <div class="small reveal"><img src="img/mordogan-plan.webp" alt="Mordoğan bahçesi vaziyet planı" loading="lazy"></div>
+      <div class="small reveal"><img src="img/mordogan-gece.webp" alt="Mordoğan bahçesi gece aydınlatması" loading="lazy"></div>
+    </div>
+    <div class="project-meta reveal">
+      <p style="max-width:560px">Rüzgârlı Ege kıyısında, doğayla yarışmayan; onu çerçeveleyen bir bahçe. Yerel taşlar, kurakçıl bitkiler, ateş çukuru etrafında toplanan bir oturma alanı ve taş yolları öne çıkaran alçak aydınlatma.</p>
+      <div class="tags"><span>Kurakçıl peyzaj</span><span>Doğal taş</span><span>Aydınlatma</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="bitkiler" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="kicker reveal">Bitki Rehberi</div>
+    <h2 class="reveal">Ege'ye uygun bitkiler</h2>
+    <p class="italic reveal">Az su, çok karakter.</p>
+    <div class="plants">
+      <div class="plant reveal"><img src="img/zeytin.webp" alt="Zeytin ağacı" loading="lazy"><h3>Zeytin</h3><div class="latin">Olea europaea</div><p>Yüzyıllarca yaşar, yaz kuraklığına dayanır; bahçenin odak noktası.</p></div>
+      <div class="plant reveal"><img src="img/lavanta.webp" alt="Lavanta" loading="lazy"><h3>Lavanta</h3><div class="latin">Lavandula intermedia</div><p>Tam güneş, az su ve bahçeye yayılan bir koku; arıları çeker.</p></div>
+      <div class="plant reveal"><img src="img/stipa.webp" alt="Meksika tüy otu" loading="lazy"><h3>Meksika Tüy Otu</h3><div class="latin">Stipa tenuissima</div><p>Rüzgârla dalgalanan ince yapraklar; taş ve çakılla mükemmel uyum.</p></div>
+      <div class="plant reveal"><img src="img/biberiye.webp" alt="Biberiye" loading="lazy"><h3>Biberiye</h3><div class="latin">Rosmarinus officinalis</div><p>Herdem yeşil, aromatik; kış ve ilkbaharda mavi çiçekler.</p></div>
+      <div class="plant reveal"><img src="img/laden.webp" alt="Laden" loading="lazy"><h3>Laden</h3><div class="latin">Cistus creticus</div><p>Ege makisinin yerlisi; kayalık toprakta bile pembe çiçekler.</p></div>
+      <div class="plant reveal"><img src="img/mersin.webp" alt="Mersin" loading="lazy"><h3>Mersin</h3><div class="latin">Myrtus communis</div><p>Parlak yapraklar, beyaz kokulu çiçekler; alçak çit için ideal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="kicker reveal">Süreç</div>
+    <h2 class="reveal">Bir bahçe projesi nasıl ilerler?</h2>
+    <p class="italic reveal">Beş adımda tasarımdan uygulamaya.</p>
+    <div class="steps">
+      <div class="step reveal"><h3>Keşif</h3><p>Ölçü, güneş, rüzgâr, toprak ve sizin yaşam biçiminiz.</p></div>
+      <div class="step reveal"><h3>Konsept</h3><p>Malzeme, bitki ve renk dilini belirleyen ilk eskizler.</p></div>
+      <div class="step reveal"><h3>Proje</h3><p>Plan, bitki listesi, sulama ve aydınlatma; maliyet netleşir.</p></div>
+      <div class="step reveal"><h3>Uygulama</h3><p>Taş, toprak, bitki: tasarım sahada hayata geçer.</p></div>
+      <div class="step reveal"><h3>Bakım</h3><p>İlk yılın bakım ve sulama takvimi bahçenin geleceğidir.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="iletisim" class="contact">
+  <div class="wrap reveal">
+    <img class="logo" src="img/logo.png" alt="TRC Landscape logosu">
+    <div class="kicker">İletişim</div>
+    <h2>Aklındaki mekânı konuşalım</h2>
+    <p>Bahçe, teras ya da avlu… Projen için bize Instagram'dan yaz; alanı ve fikirlerini dinleyip sana en kısa sürede dönüş yapalım.</p>
+    <div class="rule"></div>
+    <a class="btn dark" href="https://ig.me/m/trc.architecturedesign" target="_blank" rel="noopener">Instagram'dan mesaj gönder</a>
+    <p style="margin-top:22px"><a href="https://www.instagram.com/trc.architecturedesign/" target="_blank" rel="noopener">@trc.architecturedesign</a> · İzmir</p>
+  </div>
+</section>
+
+<footer>© 2026 TRC LANDSCAPE · TIMELESS · RUSTIC · CHIC</footer>
+
+<script>
+  const h = document.getElementById('top');
+  const onScroll = () => h.classList.toggle('solid', scrollY > 60);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
