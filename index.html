@@ -7,7 +7,7 @@
 <meta name="description" content="TRC Landscape: İzmir'de Ege'nin iklimine ve doğasına uygun bahçe, teras ve avlu tasarımı. Konsept, proje, uygulama ve danışmanlık.">
 <meta property="og:title" content="TRC Landscape · Peyzaj Mimarlığı & Tasarım">
 <meta property="og:description" content="Timeless · Rustic · Chic. İzmir'de doğadan ilham alan, zamansız bahçeler.">
-<meta property="og:image" content="img/hero.webp">
+<meta property="og:image" content="https://bagost35.github.io/trc-landscape/img/hero.webp">
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,6 +83,13 @@
   .tags { display: flex; gap: 10px; flex-wrap: wrap; }
   .tags span { border: 1px solid var(--line); padding: 6px 14px; font-size: 12px; letter-spacing: .08em; }
 
+  /* videolar */
+  .videos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
+  .video video { width: 100%; aspect-ratio: 9/16; object-fit: cover; background: var(--cream-2); display: block; }
+  .video h3 { margin-top: 16px; font-size: 24px; }
+  .video p { font-size: 14px; color: #4a4a42; }
+  .note { margin-top: 26px; font-size: 12px; color: var(--muted); }
+
   /* bitkiler */
   .plants { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 50px; }
   .plant img { aspect-ratio: 4/5; object-fit: cover; width: 100%; }
@@ -117,6 +124,7 @@
     .split, .project { grid-template-columns: 1fr; gap: 40px; }
     .project .big { grid-row: auto; }
     .trio, .plants { grid-template-columns: 1fr; }
+    .videos { grid-template-columns: 1fr 1fr; gap: 18px; }
     .grid4 { grid-template-columns: 1fr 1fr; }
     .steps { grid-template-columns: 1fr; }
   }
@@ -129,7 +137,7 @@
   <div class="wrap nav">
     <a class="brand" href="#"><img src="img/logo.png" alt="TRC Landscape logosu"><span>TRC LANDSCAPE</span></a>
     <nav class="menu">
-      <a href="#hakkimizda">Hakkımızda</a><a href="#hizmetler">Hizmetler</a><a href="#projeler">Projeler</a>
+      <a href="#hakkimizda">Hakkımızda</a><a href="#hizmetler">Hizmetler</a><a href="#projeler">Projeler</a><a href="#videolar">Videolar</a>
       <a href="#bitkiler">Bitkiler</a><a href="#iletisim">İletişim</a>
     </nav>
   </div>
@@ -192,6 +200,21 @@
   </div>
 </section>
 
+<section id="videolar">
+  <div class="wrap">
+    <div class="kicker reveal">Videolar</div>
+    <h2 class="reveal">Bir köşe nasıl dönüşür?</h2>
+    <p class="italic reveal">İzmir'den tasarım fikirleri ve bahçe rehberleri.</p>
+    <div class="videos">
+      <div class="video reveal"><video src="video/kordon.mp4" poster="video/kordon.webp" muted loop playsinline controls preload="none"></video><h3>Kordon</h3><p>Unutulmuş bir sahil parçası; denize inen basamaklar, gölge ve gün batımı.</p></div>
+      <div class="video reveal"><video src="video/alsancak.mp4" poster="video/alsancak.webp" muted loop playsinline controls preload="none"></video><h3>Alsancak</h3><p>Araçlar ve çöple dolu bir üçgen; mahallenin buluşma noktasına dönüşüyor.</p></div>
+      <div class="video reveal"><video src="video/urla.mp4" poster="video/urla.webp" muted loop playsinline controls preload="none"></video><h3>Ege bahçesi</h3><p>Boş bir arsa; kayrak yol, ateş çukuru, zeytin ve kurakçıl bitkiler.</p></div>
+      <div class="video reveal"><video src="video/cim-yerine-ne.mp4" poster="video/cim-yerine-ne.webp" muted loop playsinline controls preload="none"></video><h3>Çim yerine ne?</h3><p>Az su isteyen beş alternatif: lippia, kekik, civanperçemi, çakıl ve taş.</p></div>
+    </div>
+    <p class="note reveal">Dönüşüm videoları birer tasarım önerisidir; görseller yapay zekâ ile üretilmiştir.</p>
+  </div>
+</section>
+
 <section id="bitkiler" style="background:var(--cream-2)">
   <div class="wrap">
     <div class="kicker reveal">Bitki Rehberi</div>
@@ -218,7 +241,7 @@
       <div class="step reveal"><h3>Konsept</h3><p>Malzeme, bitki ve renk dilini belirleyen ilk eskizler.</p></div>
       <div class="step reveal"><h3>Proje</h3><p>Plan, bitki listesi, sulama ve aydınlatma; maliyet netleşir.</p></div>
       <div class="step reveal"><h3>Uygulama</h3><p>Taş, toprak, bitki: tasarım sahada hayata geçer.</p></div>
-      <div class="step reveal"><h3>Bakım</h3><p>İlk yılın bakım ve sulama takvimi bahçenin geleceğidir.</p></div>
+      <div class="step reveal"><h3>Teslim</h3><p>Bahçe, ilk yılın bakım ve sulama takvimiyle birlikte teslim edilir.</p></div>
     </div>
   </div>
 </section>
@@ -243,6 +266,9 @@
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // videolar görünürken sessiz oynar, ekrandan çıkınca durur
+  const vo = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: .5 });
+  document.querySelectorAll('.video video').forEach(v => vo.observe(v));
 </script>
 </body>
 </html>
